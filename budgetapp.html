@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="mybulma/css/custom-bulma.css"
+    />
+    <link rel="stylesheet" href="mybulma/css/custom-styles.css" />
+    <script src="app.js" defer></script>
+    <title>Budget App</title>
+  </head>
+  <nav class="navbar is-fixed-top has-background-primary ">
+    <span class="navtext has-text-weight-bold has-text-white">Budget App</span>
+  </nav>
+  <body class="has-navbar-fixed-top site">
+    <div class="site-box">
+      <section
+        class="section divider is-centered has-background-white"
+        id="budget-section"
+      >
+        <div class="container columns" id="original-form">
+          
+          <div class="field" id="moneySpent">
+            <label class="label" for="expense">Expense</label>
+            <div class="control">
+              <input
+                class="input expense"
+                id="expense"
+                type="text"
+                placeholder="Enter service you spent"
+                name="expense"
+                required
+              />
+              
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="money"><p>$</p></label>
+            <div class="control">
+              <input
+                class="input money"
+                type="number"
+                id="money-amount"
+                placeholder="Enter amount"
+                name="money"
+                required
+              />
+            </div>
+          </div>
+        
+
+          <div class="field addbutton">
+            <button class="button add-input" type="button" id="button-add">
+              +
+            </button>
+          </div>
+
+          
+        </div>
+        
+
+        <div class="total has-text-weight-bold" id="amount-total">
+          <p>
+            total = $
+            <span id="current-total">0</span>
+          </p>
+        </div>
+        <div class="push"></div>
+      </section>
+    </div>
+  </body>
+  <footer class="footer has-background-cream-white">
+    <p>Made by Nagi</p>
+  </footer>
+</html>

@@ -1,0 +1,77 @@
+/* html, body{
+    height: 100%;
+    margin: 0;
+} */
+nav {
+    background-color: #3FA9A3;
+}
+.navtext{
+    
+    padding-top: 11px;
+    padding-left: 2%;
+}
+
+body {
+    background-color: rgba(196, 222, 193, 0.2);
+}
+
+.divider {
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.site-box {
+    flex: 1;
+}
+.section {
+    /* min-height: 10%;
+     */
+    border-radius: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container{
+    margin-left: 30%;
+} 
+
+.money {
+    width: 80px;
+}
+
+.expense {
+    width: 200px;
+    
+}
+
+.total {
+    text-align: right;
+    padding-right: 20%;
+}
+.field{
+    margin-left: 10px;
+}
+
+#button-add{
+    margin-top: 32px;
+    /* border-radius: 20px; */
+}
+
+
+
+.footer,
+.push { 
+    height: 50px;  
+   
+  
+}
+
+footer{
+    background-color: #3FA9A3;
+}
