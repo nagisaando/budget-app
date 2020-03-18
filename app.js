@@ -4,7 +4,7 @@ const newForm = document.getElementById("new-form");
 const originalForm = document.getElementById("original-form");
 const section = document.getElementById('budget-section');
 const total = document.getElementById('amount-total');
-const userInput = document.getElementById('money-amount');
+//const userInput = document.querySelectorAll('.addmoney');
 const moneyfield = document.getElementById('moneySpent');
 
 let defaultresult = 0;
@@ -72,7 +72,7 @@ addBtn.addEventListener('click', FirstAddForm);
 
 
 
-// function SecondAddForm () {
+function SecondAddForm () {
 
 //     let errMsg = document.createElement('p');
 //         errMsg.innerText = 'Enter the amount you spent';
@@ -102,7 +102,7 @@ addBtn.addEventListener('click', FirstAddForm);
 
     
 
-//     addForm();
+    addForm();
 //     };
 
 //     if(message === null && (isNaN(enteredNum) || enteredNum < 0)) {
@@ -139,7 +139,7 @@ addBtn.addEventListener('click', FirstAddForm);
 
     
 
-// }
+ }
 
 
 let counter = 0;
@@ -161,7 +161,7 @@ function addForm(){
     newDiv.appendChild(newField);
 
     let newField1 = document.createElement('div');
-    newField1.className = 'field';
+    newField1.className = 'field money-input';
     newDiv.appendChild(newField1);
 
     let newField2 = document.createElement('div');
@@ -179,7 +179,7 @@ function addForm(){
     let moneyInput = document.createElement("input");
     moneyInput.setAttribute('type', 'number')
     moneyInput.id = 'money-amount' + counter;
-    moneyInput.className = 'input money';
+    moneyInput.className = 'input addmoney';
     moneyInput.name = 'money-amount' + counter;
     
     
@@ -188,10 +188,10 @@ function addForm(){
     createBtn.innerHTML = '+';
     createBtn.className = 'button';
     createBtn.id = 'addBtn' + counter;
-    createBtn.addEventListener('click', SecondAddForm)
+    createBtn.addEventListener('click', FirstAddForm)
     if(addCounter > 0){
         document.getElementById(`addBtn${counter -1 }`).remove();
-        document.getElementById(`userInput${counter -1 }`).setAttribute('disabled', '');
+        //document.getElementById(`userInput${counter -1 }`).setAttribute('disabled', '');
 
      }
 
@@ -215,45 +215,66 @@ document.getElementsByName
 
 function FirstAddForm(){
 
-    let userInputs = document.querySelectorAll('.addmoney');
+    currentnumber = 0
 
-userInputs.forEach(userInput => {
-  console.log(parseInt(userInput.value));
-});
-    // let allMoney = document.getElementsByClassName("addmoney");
-    // for
-    // console.log(allMoney[0].value);
-   
     let errMsg = document.createElement('p');
         errMsg.innerText = 'Enter the amount you spent';
         errMsg.className = 'help is-danger';
         errMsg.id = 'error-message';
     let message = document.getElementById('error-message');
 
-    // if(message === null && (isNaN(enteredNum) || enteredNum < 0)) {
-    //     moneySpent.appendChild(errMsg)
-    //     return;
-    // } else if(message != null && typeof enteredNum === 'number' && enteredNum > 0) {
-    //     message.remove();
+    let errorMsgtoInput = document.querySelector('.money-input')
 
-    //     addForm();
+    let userInputs = document.querySelectorAll('.addmoney');
 
-    //     addBtn.remove();
-    //     userInput.setAttribute('disabled', '')
+    userInputs.forEach(userInput => {
+    enteredNum = parseInt(userInput.value);
+    console.log(enteredNum);
+
+
+    
+    if(message === null && (isNaN(enteredNum) || enteredNum < 0)) {
+        errorMsgtoInput.appendChild(errMsg);
+        } else if(message != null && typeof enteredNum === 'number' && enteredNum > 0) {
+                message.remove();
+        
+                
+        
+                addBtn.remove();
+                userInput.setAttribute('disabled', '')
+        } else if(message === null && (typeof enteredNum != 'number' || enteredNum < 0)) {
+                 return;
+            
+        } else if(message === null && typeof enteredNum === 'number' && enteredNum > 0){
+                console.log(message)
+                
+        
+                addBtn.remove();
+                //userInput.setAttribute('disabled', '')
+
+        }
+
+        
+
+    })
+    
+    addForm()
+
+    const enteredNumber = enteredNum;
+    currentnumber = currentnumber + enteredNumber;
+    currentResult.innerHTML = currentnumber;
+
+
+
+
+}
+    
+
+    //  
     
     
-    //     const enteredNumber = enteredNum;
-    //     currentnumber = currentnumber + enteredNumber;
-    //     currentResult.innerHTML = currentnumber;
-
-    // } else if(message === null && (typeof enteredNum != 'number' || enteredNum < 0)) {
-    //     return;
-    // } else if(message === null && typeof enteredNum === 'number' && enteredNum > 0){
-    //     console.log(message)
-    //     addForm();
-
-    //     addBtn.remove();
-    //     userInput.setAttribute('disabled', '')
+    // 
+    // 
     
     
     //     const enteredNumber = enteredNum;
@@ -262,7 +283,7 @@ userInputs.forEach(userInput => {
 
     // }
 
-}
+//}
 
        
         
@@ -305,3 +326,9 @@ userInputs.forEach(userInput => {
     // function getUserNumberInput() {
     //     return parseInt(userInput.value);
     // }
+
+
+    // let allMoney = document.getElementsByClassName("addmoney");
+    // for
+    // console.log(allMoney[0].value);
+   
