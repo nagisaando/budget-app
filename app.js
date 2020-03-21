@@ -1,155 +1,16 @@
 const currentResult = document.getElementById('current-total');
 const addBtn = document.querySelector('.button');
-const newForm = document.getElementById("new-form");
-const originalForm = document.getElementById("original-form");
-const section = document.getElementById('budget-section');
-const total = document.getElementById('amount-total');
-//const userInput = document.querySelectorAll('.addmoney');
-const moneyfield = document.getElementById('moneySpent');
-
-let defaultresult = 0;
-let currentnumber = defaultresult;
-
-
-addBtn.addEventListener('click', FirstAddForm);
-
-
-// function FirstAddForm(){
-//      enteredNum = parseInt(userInput.value)
-
-//     // function getUserNumberInput() {
-//     //     return parseInt(userInput.value);
-//     // }
-//     let errMsg = document.createElement('p');
-//         errMsg.innerText = 'Enter the amount you spent';
-//         errMsg.className = 'help is-danger';
-//         errMsg.id = 'error-message';
-//     let message = document.getElementById('error-message');
-
-//     if(message === null && (isNaN(enteredNum) || enteredNum < 0)) {
-//         moneySpent.appendChild(errMsg)
-//         return;
-//     } else if(message != null && typeof enteredNum === 'number' && enteredNum > 0) {
-//         message.remove();
-
-//         addForm();
-
-//         addBtn.remove();
-//         userInput.setAttribute('disabled', '')
-    
-    
-//         const enteredNumber = enteredNum;
-//         currentnumber = currentnumber + enteredNumber;
-//         currentResult.innerHTML = currentnumber;
-
-//     } else if(message === null && (typeof enteredNum != 'number' || enteredNum < 0)) {
-//         return;
-//     } else if(message === null && typeof enteredNum === 'number' && enteredNum > 0){
-//         console.log(message)
-//         addForm();
-
-//         addBtn.remove();
-//         userInput.setAttribute('disabled', '')
-    
-    
-//         const enteredNumber = enteredNum;
-//         currentnumber = currentnumber + enteredNumber;
-//         currentResult.innerHTML = currentnumber;
-
-//     }
-
-    
-
-       
-        
-
-
-    // const enteredNumber = getUserNumberInput();
-    // currentnumber = currentnumber + enteredNumber;
-    // currentResult.innerHTML = currentnumber;
-    
-    //}
 
 
 
-function SecondAddForm () {
+addBtn.addEventListener('click', checkUserForm);
 
-//     let errMsg = document.createElement('p');
-//         errMsg.innerText = 'Enter the amount you spent';
-//         errMsg.className = 'help is-danger';
-//         errMsg.id = 'error-message';
-//     let message = document.getElementById('error-message');
-
-
-//     let userInput2 = document.getElementById(`userInput${counter}`);
-//     enteredNum = parseInt(userInput2.value);
-
-    
-
-//     if(isNaN(enteredNum) || enteredNum < 0) {
-        
-
-//         return;
-//     } else {
-
-//     // function getUserNumberInput1() {
-//     //     return parseInt(money.value);
-//     // }
-
-//     const enteredNumber = enteredNum;
-//     currentnumber = currentnumber + enteredNumber;
-//     currentResult.innerHTML = currentnumber;
-
-    
-
-    addForm();
-//     };
-
-//     if(message === null && (isNaN(enteredNum) || enteredNum < 0)) {
-//         moneySpent.appendChild(errMsg)
-//         return;
-//     } else if(message != null && typeof enteredNum === 'number' && enteredNum > 0) {
-//         message.remove();
-
-//         addForm();
-
-//         addBtn.remove();
-//         userInput.setAttribute('disabled', '')
-    
-    
-//         const enteredNumber = enteredNum;
-//         currentnumber = currentnumber + enteredNumber;
-//         currentResult.innerHTML = currentnumber;
-
-//     } else if(message === null && (typeof enteredNum != 'number' || enteredNum < 0)) {
-//         return;
-//     } else if(message === null && typeof enteredNum === 'number' && enteredNum > 0){
-//         console.log(message)
-//         addForm();
-
-//         addBtn.remove();
-//         userInput.setAttribute('disabled', '')
-    
-    
-//         const enteredNumber = enteredNum;
-//         currentnumber = currentnumber + enteredNumber;
-//         currentResult.innerHTML = currentnumber;
-
-//     }
-
-    
-
- }
-
-
-let counter = 0;
-let addCounter = 0
+let counter = 1;
+let addCounter = 0;
 
 
 function addForm(){
-
-    counter++;
-
+    const total = document.getElementById('amount-total');
 
     let newDiv = document.createElement('div');
     newDiv.id = 'new-container' + counter;
@@ -171,120 +32,95 @@ function addForm(){
     let expenseDesc = document.createElement('input');
     expenseDesc.setAttribute('type', 'text')
     expenseDesc.id = 'expense' + counter;
-    expenseDesc.className = 'input expense';
+    expenseDesc.className = 'input expenses';
     expenseDesc.name = 'expense' + counter;
     
-
-
     let moneyInput = document.createElement("input");
     moneyInput.setAttribute('type', 'number')
     moneyInput.id = 'money-amount' + counter;
     moneyInput.className = 'input addmoney';
     moneyInput.name = 'money-amount' + counter;
-    
-    
+
+    let errMsg = document.createElement('p');
+        errMsg.innerText = 'Enter the amount you spent';
+        errMsg.className = 'help is-danger';
+        errMsg.id = 'error-message' + counter;
 
     let createBtn = document.createElement('button');
     createBtn.innerHTML = '+';
     createBtn.className = 'button';
     createBtn.id = 'addBtn' + counter;
-    createBtn.addEventListener('click', FirstAddForm)
+    createBtn.addEventListener('click', checkUserForm)
     if(addCounter > 0){
         document.getElementById(`addBtn${counter -1 }`).remove();
-        //document.getElementById(`userInput${counter -1 }`).setAttribute('disabled', '');
 
      }
-
-    //console.log(document.getElementById(`addBtn${counter -1 }`))
-
-
     
     newField.appendChild(expenseDesc);
+    newField.appendChild(errMsg);
     newField1.appendChild(moneyInput);
+    
     newField2.appendChild(createBtn);
 
-    console.log(counter)
-
-    console.log(addCounter);
+   
     addCounter++
+    counter++;
 
 }
 document.getElementsByName
 
 
 
-function FirstAddForm(){
-
-    currentnumber = 0
-
-    let errMsg = document.createElement('p');
-        errMsg.innerText = 'Enter the amount you spent';
-        errMsg.className = 'help is-danger';
-        errMsg.id = 'error-message';
-    let message = document.getElementById('error-message');
-
-    let errorMsgtoInput = document.querySelector('.money-input')
-
+function checkUserForm(){
+    const numbersList = [];
     let userInputs = document.querySelectorAll('.addmoney');
-
-    userInputs.forEach(userInput => {
-    enteredNum = parseInt(userInput.value);
-    console.log(enteredNum);
-
-
-    
-    if(message === null && (isNaN(enteredNum) || enteredNum < 0)) {
-        errorMsgtoInput.appendChild(errMsg);
-        } else if(message != null && typeof enteredNum === 'number' && enteredNum > 0) {
-                message.remove();
-        
-                
-        
-                addBtn.remove();
-                userInput.setAttribute('disabled', '')
-        } else if(message === null && (typeof enteredNum != 'number' || enteredNum < 0)) {
-                 return;
-            
-        } else if(message === null && typeof enteredNum === 'number' && enteredNum > 0){
-                console.log(message)
-                
-        
-                addBtn.remove();
-                //userInput.setAttribute('disabled', '')
-
-        }
-
-        
-
+    let numbers =  userInputs.forEach(userInput => {
+    numbersList.push(parseInt(userInput.value))
     })
     
-    addForm()
+    let moneyInputList = [...document.querySelectorAll('.addmoney')];
+    
+    let i = 0
+    for(i = 0; i < moneyInputList.length; i++) {
+        let getMoneyInput = document.getElementById(`money-amount${i}`);
+        let StringtoNumber = parseInt(getMoneyInput.value)
+        let message = document.getElementById(`error-message${i}`)
+  
+        if( (isNaN(StringtoNumber) || StringtoNumber < 0)) {
+            
+            message.style.visibility = "visible"
+            getMoneyInput.classList.add('is-danger')
+            return;
+            
+             } else if( typeof StringtoNumber === 'number' && StringtoNumber > 0) {
+                
+                message.style.visibility = "hidden"
+                addBtn.remove();
+                getMoneyInput.classList.remove('is-danger')
+            
+             } ;                
 
-    const enteredNumber = enteredNum;
-    currentnumber = currentnumber + enteredNumber;
-    currentResult.innerHTML = currentnumber;
+     }
 
 
+     let checkAllInput = numbersList.every(function(number){
+         return typeof number === 'number' && number > 0;
+        
+     })
 
+    if(checkAllInput){
+     addBtn.remove()
+        addForm()
+     }
+
+    const calculate = numbersList.filter(number => typeof number === 'number')   
+    let totalNumber = calculate.reduce((a, b) => a + b, 0);
+    currentResult.innerHTML = totalNumber;
 
 }
     
 
-    //  
     
-    
-    // 
-    // 
-    
-    
-    //     const enteredNumber = enteredNum;
-    //     currentnumber = currentnumber + enteredNumber;
-    //     currentResult.innerHTML = currentnumber;
-
-    // }
-
-//}
-
        
         
 
@@ -293,42 +129,4 @@ function FirstAddForm(){
 
 
 
- // let userInput = document.getElementsByClassName('money');
-    // a = parseInt(userInput.value)
-
-    // console.log(a)
-
-//     let userInputs = document.querySelectorAll('addmoney');
-  
-//   userInputs.forEach(userInput => {
-//     console.log(parseInt(userInput.value));
-//   });
-    // userInput.forEach(input=>{
-    //      if(typeof input === 'number' && input > 0){
-    //         console.log('a')
-    //      }
-    //     })
-    // let userInput = document.getElementsByName('money-amount');
-    // inputNum = parseInt(userInput.value);
-    
-    // console.log(inputNum) 
-
-    // var allMoney = document.getElementsByClassName("addmoney");
-    // console.log(allMoney[0].value);
-
-        // let userInputs = document.querySelectorAll('.addmoney');
-        
-        // userInputs.forEach(userInput => {
-        //   console.log(parseInt(userInput.value));
-        // });
-        
-
-    // function getUserNumberInput() {
-    //     return parseInt(userInput.value);
-    // }
-
-
-    // let allMoney = document.getElementsByClassName("addmoney");
-    // for
-    // console.log(allMoney[0].value);
-   
+ 
